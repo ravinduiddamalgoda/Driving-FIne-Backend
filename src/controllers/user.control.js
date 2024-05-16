@@ -137,3 +137,13 @@ export const searchByNIC = async (req, res) => {
   }
 };
 
+export const userFineUpdate = async (req, res) => { 
+    try{
+      const userID = req.params['id'];
+      const {fineSocre} = req.body;
+      const user = await User.findByIdAndUpdate(userID , {fineSocre});
+      res.status(200).send(user);
+    }catch(err){
+      res.status(400).send({err: err.message});
+    }
+}
