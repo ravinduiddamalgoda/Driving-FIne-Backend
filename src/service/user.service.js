@@ -30,7 +30,9 @@ async function login(email, password) {
     if (!acc) {
         throw new Error('User Not Found');
     }
-
+    if (acc.password !== password) {
+        throw new Error('Invalid Password');
+    }
     // Directly return the user data without token generation
     const userCpy = JSON.parse(JSON.stringify(acc));
     delete userCpy?.password;
