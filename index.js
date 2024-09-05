@@ -79,7 +79,7 @@ app.post("/create-payment-intent", async (req, res) => {
   app.post('/Inquiry' , (req, res)=>{
     const { email, phone, inquiry } = req.body;
 
-    const data = ``;
+    const data = `Hello , \n We have received your inquiry about. We will contact you soon. \n`;
     sendMail(email , "We will Contact You Soon!" , data);
 
   })
